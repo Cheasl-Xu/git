@@ -1,0 +1,4 @@
+<view class="footer">
+	<image mode="aspectFit" src="/images/logo.png"/>
+	<view class="footer-text">短书提供技术支持</view>
+</view>

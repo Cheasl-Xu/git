@@ -1,0 +1,14 @@
+<view class="page-feedback">
+  <text class="sub-title">反馈内容</text>
+  <view>
+    <view class="textarea-view"><textarea maxlength="300" placeholder-style="color:#999" placeholder="请输入反馈内容" bindinput="getTexteareContent" /></view>
+  </view>
+  <text class="sub-title">联系方式</text>
+  <view>
+    <input type="text" placeholder-style="color:#999" placeholder="如邮箱、QQ、手机号等" bindinput="getConcactContent"/>
+  </view>
+  <view class="toast-wrap" wx:if="{{isShowToast}}">
+      <span  class="own-toast">{{tips}}</span>
+  </view>
+  <view class="btn-save" bindtap="saveFeedback"><button>提交</button></view>
+</view>

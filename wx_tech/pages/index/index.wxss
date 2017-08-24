@@ -1,0 +1,318 @@
+/**index.wxss**/
+.hot-item-container{
+	background-color:#f5f5f5;
+    height:100vh;
+}
+.swiper{
+    height:400rpx;
+}
+.slide-image{
+    height:400rpx;
+    width:100%;
+}
+.slide-image:before{
+	height:100%;
+	width:100%;
+	background-image:url('//h5.duanshu.com/static/img/global/banner-2x.png');
+	background-repeat:repeat-x;
+	content:'';
+	display:block;
+	background-size: auto 100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background-color:transparent;
+	z-index:1;
+}
+.h5tech{
+	font-size:24rpx;
+	margin-right:8rpx;
+}
+.image-container {
+    position: relative;
+}
+.wx-swiper-dot{
+	background-color:#fff;
+}
+.class-icon{
+	background-color:#fff;
+	font-size:22rpx;
+	padding:24rpx 50rpx;
+	color:#999999;
+	box-sizing: border-box;
+	justify-content:space-around;
+}
+.classify{
+	text-align:center;
+}
+.class-img{
+	width:60rpx;
+	height:60rpx;
+	margin-bottom:12rpx;
+    display:inline-block;
+}
+.class-text{
+    display:block;
+    font-size:22rpx;
+    line-height:30rpx;
+}
+/**直播**/
+.live{
+	margin-top:20rpx;
+	background-color:#fff;
+}
+.title{
+	padding:34rpx 32rpx;
+	font-size:32rpx;
+	line-height:40rpx;
+	border-bottom:2rpx solid #d8d8d8;
+	box-sizing: border-box;
+	position:relative;
+}
+.title image{
+    position:absolute;
+    top:46rpx;
+    right:30rpx;
+    width:16rpx;
+    height:26rpx;
+}
+.black-seat{
+	width:10rpx;
+	height:26rpx;
+	background-color:#333;
+	display:inline-block;
+}
+.title-name{
+	display:inline-block;
+	margin-left:20rpx;
+}
+.studio{
+	padding:46rpx 30rpx 28rpx;
+	padding-right:0;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+.live1{
+	height:488rpx;
+	width:534rpx;
+	margin-right:18rpx;
+	border:2rpx solid #ddd;
+	display:inline-block;
+	box-sizing: border-box;
+}
+.live1:last-child{
+	margin-right:30rpx;
+}
+.live-pic{
+	height:300rpx;
+}
+.live-img{
+	width:100%;
+	height:100%;
+}
+.live-content{
+	padding:14rpx 20rpx;
+	white-space:pre-line;
+	font-size:30rpx;
+	line-height:40rpx;
+}
+.live-status{
+	height:40rpx;
+	border:2rpx solid #ce4d61;
+	color:#ce4d61;
+	width:102rpx;
+	font-size:30rpx;
+	line-height:40rpx;
+	text-align:center;
+	border-radius:6rpx;
+	display:inline-block;
+	margin-right:20rpx;
+}
+.live-tips{
+	margin-top:36rpx;
+	font-size:24rpx;
+}
+.live-comment{
+	display:inline-block;
+	margin-right:18rpx;
+	color:#888;
+}
+
+.live-view{
+	display:inline-block;
+	color:#888;
+}
+.live-pirce{
+	color:#ce4d61;
+	display:inline-block;
+	float:right;
+}
+/**专栏**/
+.cloumn{
+	margin-top:20rpx;
+	background-color:#fff;
+}
+.brief-list{
+	border-bottom:2rpx solid #d8d8d8;
+	margin:0 26rpx;
+	padding: 56rpx 0 54rpx;
+}
+.brief-list:last-child{
+	border-bottom:0;
+}
+.cloumn-pic{
+	position:relative;
+  width:178rpx;
+  min-width:178rpx;
+	height:270rpx;
+	display:inline-block;
+}
+.cloumn-top{
+  position:relative;
+}
+.cloumn-top:before{
+  position:absolute;
+  top:8rpx;
+  left:8rpx;
+  width:178rpx;
+  height:270rpx; 
+  box-sizing: border-box;
+  border:2rpx solid #ccc;
+  background-color:#e5e5e5; 
+  content:'';
+}
+.cloumn-content{
+	margin-left:30rpx;
+}
+.cloumn-title{
+	font-size:36rpx;
+  font-weight: 500;
+	line-height:52rpx;
+	color:#4D4D4E;
+	height:106rpx;
+}
+.cloumn-brief{
+	font-size:28rpx;
+	line-height:44rpx;
+	margin-top:18rpx;
+	color:#4D4D4E;
+	height:90rpx;
+}
+.column-detail{
+	font-size:22rpx;
+	margin-top:38rpx;
+}
+.column-price{
+	color:#cc4c5e;
+	font-size:24rpx;
+}
+.column-detail-inner{
+	color:#9F9F9F;
+	vertical-align: right;
+}
+.cloumn-update{
+	padding-right:20rpx;
+}
+.cloumn-subscribe{
+	padding-left:20rpx;
+	border-left:2rpx solid #979797;
+}
+
+.newest{
+	background-color:#fff;
+	margin-top:20rpx;
+}
+.newest-list{
+	margin:0 30rpx;
+	padding:60rpx 0;
+	border-bottom:2rpx solid #d8d8d8;
+}
+.newest-list:last-child{
+	border-bottom:0;
+}
+.newest-title{
+	font-size:36rpx;
+	line-height:52rpx;
+	color: #4D4D4E;
+	height:52rpx;
+  font-weight:500;
+}
+.newest-brief{
+	margin-top:8rpx;
+	line-height:50rpx;
+	font-size:30rpx;
+	height:90rpx;
+}
+.newest-price{
+	color:#ce4d61;
+	font-size:24rpx;
+	display:inline-block;
+	margin-top:48rpx;
+}
+.newest-pic{
+	margin-left:40rpx;
+}
+.h5-audio,.h5-video{
+  position: absolute;
+  top: 10rpx;
+  left: 10rpx;
+  color: #fff;
+}
+.newest-img{
+	width:262rpx;
+	height:198rpx;
+  position: relative;
+}
+.linear{
+	position:relative;
+}
+.linear:before{
+	content:'';
+	width:100%;
+	height:70%;
+	position:absolute;
+	top:0;
+	background: -webkit-linear-gradient(rgba(0,0,0,0.5), transparent);
+  background: -o-linear-gradient(rgba(0,0,0,0.5), transparent);
+  background: -moz-linear-gradient(rgba(0,0,0,0.5), transparent);
+  background: linear-gradient(rgba(0,0,0,0.5), transparent);
+}
+.newest-img .h5tech{
+    position: absolute;
+}
+.newest-img image{
+    border-radius:6rpx;
+}
+.newest-bottom{
+	font-size:24rpx;
+	margin-top:20rpx;
+}
+.price-box{
+  width: 64rpx;
+  height: 42rpx;
+  font-size:30rpx;
+  line-height:42rpx;
+  color: #CC4C5E;
+}
+.header-count{
+	text-align:left;
+}
+.newest-icon{
+	display:inline-block;
+	color:#858585;
+	margin-right:18rpx;
+	line-height:39rpx;
+}
+.newest-icon text{
+    font-size: 24rpx;
+    color:#858585;
+}
+.wx-swiper-dot{
+	background-color:#fff!important;
+	width:12rpx!important;
+	height:12rpx!important;
+}
+.wx-swiper-dot-active{
+	width:32rpx!important;
+	border-radius:5px!important;
+}

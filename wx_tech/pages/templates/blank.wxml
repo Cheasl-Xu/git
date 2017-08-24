@@ -1,0 +1,9 @@
+<template name="blank">
+  <view class="blank">
+    <view class="blank-box">
+      <image class="blank-img" src="/images/box.png"/>
+      <view class="blank-tip">还没有内容呦～</view>
+      <view class="blank-nocontent">No content</view>
+    </view>
+  </view>
+</template>

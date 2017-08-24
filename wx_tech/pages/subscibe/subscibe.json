@@ -1,0 +1,7 @@
+{
+	"backgroundTextStyle": "light",
+	"navigationBarBackgroundColor": "white",
+	"navigationBarTitleText": "订阅",
+	"navigationBarTextStyle": "black",
+	"enablePullDownRefresh": true
+}

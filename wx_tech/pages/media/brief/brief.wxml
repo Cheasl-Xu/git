@@ -1,0 +1,76 @@
+<!--pages/media/brief/brief.wxml-->
+<view class="view">
+	<scroll-view class="hot-item-container {{currentNavbar==0 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;"
+  scroll-y="true" >
+  	<view class="img-box">
+  		<image src="http://hogetech-1253559031.cossh.myqcloud.com/techapply/image/1492084422053_325182.jpg"/>
+  	</view>
+  	<view class="audio-content">
+	  	<view class="audio-process flex-wrap">
+	  		<span class="time">00:00</span>
+	  		<view class="process-line flex">
+	  			<view class="process-on">
+	  				<em class="process-handle"></em>
+	  			</view>
+	  		</view>
+	  		<span class="time">00:00</span>
+	  	</view>
+	  	<view class="audio-operate">
+	  		<view class="audio-handle">
+	  			<span bindtap="prev" class="operate"><i class="h5tech h5-prev"></i></span>
+	  			<span class="playing operate" bindtap="prev"><i class="h5tech h5-stop" ></i></span>
+	  			<span bindtap="next" class="operate"><i class="h5tech h5-next"></i></span>
+	  			<span bindtap="mode" class="loop"><i class="h5tech h5-loop"></i></span>
+	  		</view>
+	  	</view>
+  	</view>
+
+  	<view class="flex-wrap header">
+			<view class="header-title flex">
+				<view class="title">我是标题啊</view>
+				<view class="header-count flex-wrap">
+					<view class="count"><i class="h5tech h5-view "></i>21</view>
+					<view class="count"><i class="h5tech h5-comment"></i>21</view>
+					<view class="count"><i class="h5tech h5-time"></i>12-31</view>
+				</view>
+			</view>
+			<view class="give">
+					<i class="h5tech h5-zengsong"></i>
+					<view class="give-text">赠送</view>
+				</view>
+		</view>
+
+		<view class="content">
+			<view class="content-title">简介</view>
+			<view class="content-brief">这是介绍详情介绍</view>
+		</view>
+		<view class="comment-wrap">
+
+		    <view class="comment-count flex-wrap">
+		      <view class="title">评论:</view>
+		      <view class="count">({{commentlist.length}})</view>
+		    </view>
+		    <view class="comment-new">最新评论</view>
+
+		    <view class="comment-item" wx:for="{{commentlist}}" wx:key="index">
+		      	<view class="comment-detail flex-wrap">
+			        <view class="img-box">
+			          	<image src="{{item.avatar}}"/>
+			        </view>
+			        <view class="comment-person flex">
+				        <view class="comment-nick">{{item.nick_name}}</view>
+				        <view class="comment-time"><i class="h5tech h5-time"></i> {{item.comment_time}}</view>
+			        </view>
+		        	<i class="h5tech {{isPraise == true ? 'h5-zan' : 'h5-zan_active'}}" data-id="{{item.id}}" bindtap="praise"></i>
+		      	</view>
+		      	<view class="comment-msg">{{item.content}}</view>
+		      	<view class="reply-result" wx:if="{{item.reply[0]}}">{{item.reply[0].content}}</view>
+		      	<view class="reply" data-fid="{{item.fid}}" bindtap="input_content">回复</view>
+		    </view>
+
+  		</view>
+  </scroll-view>
+  <view class="view-bottom">
+	  <input placeholder="这是一个可以自动聚焦的input" auto-focus/>
+	</view>
+</view>

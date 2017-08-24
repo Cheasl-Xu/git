@@ -1,0 +1,35 @@
+<import src="../templates/blank.wxml" />
+<view class="section">
+  <template is="blank" wx:if="{{errorTip && !loadding}}"/>
+  <scroll-view class="hot-item-container" scroll-y="true" bindscrolltolower="loadMore" wx:if="{{subscibe.length > 0}}">
+  <view style="min-height:{{height}}px;">
+    <view class="subscibe-pages">
+      <view class="list-item flex-wrap"  wx:for="{{subscibe}}" wx:for-item="item" wx:key="index">
+      <navigator hover-class="none" url="/pages/form/form?type={{item.type}}&cid={{item.content_id}}" class="flex-wrap">
+        <view class="content-wrap">
+          <view class="content-title overflow-line1">{{item.title}}</view>
+          <view class="content-desc overflow-line2">{{item.brief}}</view>
+          <view class="record-wrap flex-wrap">
+            <view class="re-view"><i class="h5tech h5-view"></i> {{item.view_count}}</view>
+            <view class="re-comment"><i class="h5tech h5-comment"></i> {{item.comment_count}}</view>
+            <view class="re-date"><i class="h5tech h5-time"></i> {{item.update_time}}</view>
+          </view>
+        </view>
+        <view class="img-box linear">
+          <i class="h5tech {{item.type == 'article' ? '' : (item.type == 'video' ? 'h5-shipin' : 'h5-yinpin')}}"></i>
+          <image class="pic" src="{{item.indeximg}}" mode="aspectFill" />
+        </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="xz_loading" wx:if="{{hasMore && !loadding}}">
+    <view class="load-text">加载中...</view>
+  </view>
+  <include src="../templates/footer.wxml" wx:if="{{!loadding && !errorTip && (subscibe.length == count.sum)}}"/>
+  </scroll-view>
+  <loading hidden="{{!loadding}}">
+      加载中...
+  </loading>
+
+</view>

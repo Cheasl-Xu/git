@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "短书",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f5f5f5",
+    "enablePullDownRefresh": true
+}

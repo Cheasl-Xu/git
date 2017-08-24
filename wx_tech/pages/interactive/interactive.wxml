@@ -1,0 +1,55 @@
+<import src="../templates/blank.wxml" />
+
+<view class="interacitve-box">
+  <template is="blank" wx:if="{{!isdata}}"/>
+  <block wx:else="{{interactData}}">
+    <scroll-view
+      scroll-top="{{scrollTop}}"
+      style="height:{{scrollHeight}}px"
+      bindscroll="scroll"
+      bindscrolltolower="loadMore"
+      scroll-y="true"
+      class="interactive">
+     	<view
+        wx:for="{{interactData}}" wx:key="item" class="interactive-list clearfloat">
+     		<view class="list-left">
+        	<view class="head-icon">
+    		    <image src="{{item.interact_avatar ? item.interact_avatar : '/images/avatar.png'}}" mode="aspectFill" class="class-img"/>
+        	</view>
+     		</view>
+        <view class="list-right">
+         	<view class="title-item">
+         		<view class="username">{{item.interact_name}}</view>
+         		<view wx:if="{{item.type == 'reply'}}" class='reply-praise'>回复了你</view>
+                <view wx:else class="reply-praise">赞了你的评论</view>
+         		<view class="reply-time">{{item.interact_time}}</view>
+         	</view>
+         	<view wx:if="{{item.message}}"  class="title-item reply-content">{{item.message}}</view>
+          <navigator  wx:if="{{item.content_id}}" url="/pages/form/form?type={{item.content_type}}&cid={{item.content_id}}">
+           	<view class="publish-content">
+           		<view class="picture-title">
+           			<image src="{{item.indexPic}}" class="class-img"></image>
+           		</view>
+           		<view class="text-content">{{item.content_title}}</view>
+           	</view>
+          </navigator>
+          <navigator  wx:else url="/pages/bricolumn/bricolumn?cid={{item.column_id}}">
+            <view class="publish-content">
+              <view class="picture-title">
+                <image src="{{item.indexPic}}" class="class-img"></image>
+              </view>
+              <view class="text-content">{{item.content_title}}</view>
+            </view>
+          </navigator>
+        </view>
+     	</view>
+      <view class="xz_loading" wx:if="{{iscount}}">
+        <view class="load-text">没有更多内容了</view>
+      </view>
+      <loading hidden="{{hidden}}">
+            加载中...
+      </loading>
+    </scroll-view>
+  </block>
+</view>
+

@@ -1,0 +1,96 @@
+<import src="../../templates/blank.wxml" />
+<scroll-view class="hot-item-container" style="height: 100vh;" scroll-y="true" bindscrolltolower="loadMore">
+<view wx:if="{{!errorTip && !loadding}}" class="{{type}}-wrap">
+<view class="form-page" >
+    <view class="article-content">
+      <view class="header-wrap">
+        <view class="header-title">{{formDetail.title}}</view>
+        <view class="header-count flex-wrap">
+          <view class="count"><i class="h5tech h5-view "></i>{{formDetail.view_count}}</view>
+          <view class="count"><i class="h5tech h5-comment"></i>{{formDetail.comment_count}}</view>
+          <view class="count"><i class="h5tech h5-time"></i>{{formDetail.update_time}}</view>
+        </view>
+        <view class="header-content">
+          <view class="img-box">
+            <image mode="widthFix" src="{{formDetail.indeximg}}"/>
+          </view>
+          <view class="content-text">
+        <rich-text wx:if="{{canIUse}}"  nodes="{{formDetail.content}}" ></rich-text>
+        <view wx:if="{{!canIUse}}">{{formDetail.content}}</view>
+        </view>
+        </view>
+      </view>
+    </view>
+
+  <view class="comment-wrap" wx:if="{{noComment || hotComment}}">
+    <view class="comment-count flex-wrap">
+      <view class="title">评论:</view>
+      <view class="count">({{commentTotal}})</view>
+    </view>
+
+    <view class="hotcomment-wrap" wx:if="{{hotComment}}">
+      <view class="comment-new" >热门评论</view>
+      <view class="comment-item" wx:for="{{hotlist}}" wx:key="index">
+        <view class="comment-detail flex-wrap">
+          <view class="img-box">
+            <image class="avatar" mode="aspectFill" src="{{item.avatar ? item.avatar : '/images/avatar.png'}}"/>
+          </view>
+          <view class="comment-person flex">
+            <view class="comment-nick">{{item.nick_name}}
+               <span class="delete" data-id="{{item.id}}" data-type="hot" bindtap="commentDelete" wx:if="{{item.mine == 1}}">删除</span>
+            </view>
+            <view class="comment-time"><i class="h5tech h5-time"></i> {{item.just ? item.just : item.comment_time}}</view>
+          </view>
+          <view class="praisenum">{{item.praise == 0 ? '' : item.praise}}<i class="h5tech {{item.isPraise == true ? 'h5-zan' : 'h5-zan_active'}}" data-id="{{item.id}}" bindtap="praise"></i></view>
+        </view>
+        <view class="comment-msg">{{item.content}}</view>
+        <view class="reply-result" wx:if="{{item.reply[0]}}">{{item.reply[0].content}}</view>
+        <view class="comment-delete" wx:if="{{item.commentdelete}}"><view class="reply-delete">评论已删除</view></view>
+        <view class="reply" data-fid="{{item.id}}" data-name="{{item.nick_name}}" data-index="{{index}}" bindtap="input_content">回复</view>
+      </view>
+    </view>
+
+    <view class="newcomment-wrap" wx:if="{{noComment}}">
+      <view class="comment-new">最新评论</view>
+      <view class="comment-item" wx:for="{{commentlist}}" wx:key="index">
+        <view class="comment-detail flex-wrap">
+          <view class="img-box">
+            <image class="avatar" mode="aspectFill" src="{{item.avatar ? item.avatar : '/images/avatar.png'}}"/>
+          </view>
+          <view class="comment-person flex">
+            <view class="comment-nick">{{item.nick_name}}
+               <span class="delete" data-id="{{item.id}}" data-type="new" bindtap="commentDelete" wx:if="{{item.mine == 1}}">删除</span>
+            </view>
+            <view class="comment-time"><i class="h5tech h5-time"></i> {{item.just ? item.just : item.comment_time}}</view>
+          </view>
+          <view class="praisenum">{{item.praise == 0 ? '' : item.praise}}<i class="h5tech {{item.isPraise == true ? 'h5-zan' : 'h5-zan_active'}}" data-id="{{item.id}}" bindtap="praise"></i></view>
+        </view>
+        <view class="comment-msg">{{item.content}}</view>
+        <view class="reply-result" wx:if="{{item.reply[0]}}"><span class="reply-name">{{item.reply[0].nick_name}}:</span>{{item.reply[0].content}}</view>
+        <view class="comment-delete" wx:if="{{item.commentdelete}}"><view class="reply-delete">评论已删除</view></view>
+        <view class="reply" data-fid="{{item.id}}" data-name="{{item.nick_name}}" data-index="{{index}}" bindtap="input_content">回复</view>
+      </view>
+    </view>
+    <view class="loading-more" wx:if="{{isMore}}">
+      <view class="load-text">加载中...</view>
+    </view>
+    <include src="../../templates/footer.wxml" wx:if="{{commentTotal == commentlist.length}}"/>
+  </view>
+  <form class="input-wrap flex-wrap" wx:if="{{!errorTip}}" bindsubmit="comment_submit" >
+    <view  class="comment-input">
+        <input name="input" value="{{inputContent}}" focus="{{focus}}" type="text"  placeholder="{{placeholder}}"/>
+    </view>
+    <button class="send-btn" form-type="submit">发送</button>
+  </form>
+  <loading hidden="{{!loadding}}">
+    加载中...
+  </loading>
+  <view class="toast-wrap" wx:if="{{isShowToast}}">
+    <span  class="own-toast">{{tips}}</span>
+  </view>
+   
+  <template is="blank" wx:if="{{!loadding && errorTip && errorTip != 'no-pay'}}"/>
+  <include src="../../templates/nopay.wxml" wx:if="{{!loadding && errorTip && errorTip == 'no-pay'}}"/>
+</view>
+</view>
+</scroll-view>

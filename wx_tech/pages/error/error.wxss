@@ -1,0 +1,32 @@
+.no-order {
+	position:fixed;
+	top: 300rpx;
+	left:0;
+	right:0;
+	width: 100%;
+	height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.no-order .img-box{
+  width:432rpx;
+  height: 231rpx;
+  margin: 0 auto;
+}
+.error-content{
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+  padding-top: 20rpx;
+}
+.errorr-content{
+  line-height: 30rpx;
+  font-size: 22rpx;
+  color: #333;
+}
+.error-tip{
+  color:#333;
+  font-size:22rpx;
+  line-height:30rpx;
+  padding-top:10rpx;
+}

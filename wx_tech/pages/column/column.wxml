@@ -1,0 +1,63 @@
+<!--pages/cloumn/form/form.wxml-->
+<scroll-view class="hot-item-container" scroll-y="true">
+  <view class="columncontent-wrap" wx:if="{{!loadding}}">
+    <view class="img-box">
+    	<image mode="aspectFill" class="blur" src="{{columnForm.indeximg}}"/>
+      <view class="mark"></view>
+      <image mode="aspectFill" class="center" src="{{columnForm.indeximg}}"/>
+    </view>
+    <view class="header">
+    	<view class="header-title">{{columnForm.title}}</view>
+    	<view class="header-brief">{{columnForm.brief}}</view>
+    </view>
+    <view class="nav flex-wrap">
+    	<view class="nav-detail flex {{ active ? 'active': ''}}"  bindtap="change" data-type="detail">
+    		<text>详情</text>
+  	</view>
+    	<view class="nav-content flex {{ !active ? 'active': ''}}"  bindtap="change" data-type="content">
+    		<text>内容</text>
+    	</view>
+    </view>
+    <view wx:if="{{active}}" class="detail-wrap">
+      <rich-text wx:if="{{canIUse}}" nodes="{{columnForm.describe}}"></rich-text>
+      <view wx:if="{{ !canIUse}}" class="detail-info">{{columnForm.describe}}</view>
+    </view>
+    <scroll-view scroll-y="true" bindscrolltolower="loadMore">
+      <view wx:if="{{ !active }}" class="content-info" wx:for="{{columnContent}}" wx:key="index">
+        <navigator hover-class="none" url="{{item.link}}">
+        <view class="content-top flex-wrap">
+          <view class="content-box flex">
+            <view class="content-title overflow-line1">
+              {{item.title}}
+            </view>
+            <view class="content-brief overflow-line2">
+              {{item.brief}}
+            </view>
+            <view class="content-count flex">
+              <view class="content-view content-icon"><i class="h5tech h5-view"></i>{{item.view_count}}</view>
+              <view class="content-comment content-icon"><i class="h5tech h5-comment"></i>{{item.comment_count}}</view>
+              <view class="content-time content-icon"><i class="h5tech h5-time"></i>{{item.create_time}}</view>
+            </view>
+          </view>
+          <view class="content-img">
+            <image mode="aspectFill" class="img-pic" src="{{item.indeximg}}"/>
+          </view>
+        </view>
+        </navigator>
+      </view>
+      <view class="xz_loading" wx:if="{{hasMore && !loadding && !active}}">
+        <view class="load-text">加载中...</view>
+      </view>
+      <include src="../templates/footer.wxml" wx:if="{{!loadding && footer && ((active && columnForm.describe) || (!active && columnContent && !contenterrorTip))}}"/>
+    </scroll-view>
+    <block wx:if="{{contenterrorTip && !active}}">
+    <view class="error">
+      <image class="error-img" src="/images/box.png"/>
+      <view class="error-text">{{contenterrorTip}}</view>
+    </view>
+    </block>
+  </view>
+  <loading hidden="{{!loadding}}">
+      加载中...
+  </loading>
+</scroll-view>

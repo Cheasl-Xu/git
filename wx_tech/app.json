@@ -1,0 +1,51 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/subscibe/subscibe",
+    "pages/personal/personal",
+    "pages/feedback/feedback",
+    "pages/mine/index",
+    "pages/form/form",
+    "pages/column/column",
+    "pages/bricolumn/bricolumn",
+    "pages/list/list",
+    "pages/interactive/interactive",
+    "pages/information/information",
+    "pages/error/error",
+    "pages/live/live"
+  ],
+  "window":{
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#f5f5f5",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "短书",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#474747",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "selectedColor": "#474747",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现",
+        "iconPath": "images/tabBar/faxian.png",
+        "selectedIconPath": "images/tabBar/faxian_active.png"
+      }, {
+        "pagePath": "pages/subscibe/subscibe",
+        "text": "订阅",
+        "iconPath": "images/tabBar/dingyue.png",
+        "selectedIconPath": "images/tabBar/dingyue_active.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/tabBar/mine.png",
+        "selectedIconPath": "images/tabBar/mine_active.png"
+      }
+    ]
+  },
+  "debug": true
+}

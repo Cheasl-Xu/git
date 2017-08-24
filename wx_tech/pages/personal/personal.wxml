@@ -1,0 +1,53 @@
+<view class="infomation-edit">
+  <view class="edit-avator">
+    <text>更换头像</text>
+    <view class="avator" bindtap="chooseimage">
+      <image src="{{userInfoAvatar}}" mode="aspectFill" class="avator-img"></image>
+      <image class="avator-arrow" src="/images/mine/arrow.png" background-size="cover" />
+    </view>
+  </view>
+  <view class="edit-inner">
+    <view class="edit-item no-top-border" data-type="nickname">
+      <text>昵称</text>
+      <input class="item-change-value" bindinput="bindNickNameChange" value="{{nickName}}"/>
+    </view>
+    <view class="edit-item" bindtap="actionSheetTap">
+      <text>性别</text>
+      <text class="item-value">{{sex}}</text>
+    </view>
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="edit-item">
+        <text>生日</text><text class="item-value">{{date}}</text>
+      </view>
+    </picker>
+    <view class="edit-item" data-type="username">
+      <text>真实姓名</text>
+      <input class="item-change-value" bindinput="bindUsernameChange" value="{{username}}"/>
+    </view>
+  </view>
+  <view class="edit-inner">
+    <view class="edit-item no-top-border" data-type="mobile">
+      <text>手机号</text>
+      <input class="item-change-value" type="number" bindinput="bindMobileChange" value="{{mobile}}" maxlength="11"/>
+    </view>
+    <view class="edit-item" data-type="company">
+      <text>公司</text>
+      <input class="item-change-value" bindinput="bindCompanyChange" value="{{company}}"/>
+    </view>
+    <view class="edit-item">
+      <text>地址</text>
+      <input class="item-change-value" bindinput="bindAddressChange" value="{{address}}"/>
+    </view>
+  </view>
+  <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+    <block wx:for-items="{{actionSheetItems}}" wx:key="item.value">
+        <action-sheet-item class="item" bindtap="bindSexGetter" data-id="{{item.id}}" data-label="{{item.label}}">{{item.label}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+  </action-sheet>
+  <loading hidden="{{hidden}}">{{loadingText}}</loading>
+  <view class="toast-wrap" wx:if="{{isShowToast}}">
+      <span  class="own-toast">{{tips}}</span>
+  </view>
+  <view class="btn-save" bindtap="saveUserDetail"><button>保存</button></view>
+</view>

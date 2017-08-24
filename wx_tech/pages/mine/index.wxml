@@ -1,0 +1,48 @@
+<view class="mine">
+  <view style="min-height:{{height}}px;">
+    <view class="mine-group">
+      <navigator url="/pages/personal/personal" class="wx-widget">
+        <image class="wx__avator" mode="aspectFill" src="{{userInfoAvatar}}"/>
+        <view class="wx__username">
+          <text class="wx-nickname">{{nickName}}</text>
+          <text class="wx-changeinfo">修改个人信息</text>
+        </view>
+        <image class="widget__arrow wx-widget__arrow"
+          src="/images/mine/arrow.png"
+          background-size="cover" />
+      </navigator>
+    </view>
+    <view class="mine-group">
+      <navigator url="/pages/information/information" class="widget hasline">
+        <image class="sub-icon" src="/images/mine/news@2x.png"/>
+        <text class="widget__name">系统通知</text>
+        <view class="hint-icon"
+          wx:if="{{system_numbers}}">{{system_numbers}}</view>
+        <image wx:else="{{!system_numbers}}"
+          class="widget__arrow"
+          src="/images/mine/arrow.png"
+          background-size="cover" />
+        <!-- <view class="widget__line"></view> -->
+      </navigator>
+      <navigator url="/pages/interactive/interactive" class="widget">
+        <image class="sub-icon" src="/images/mine/notice@2x.png"/>
+        <text class="widget__name">互动通知</text>
+        <view class="hint-icon"
+          wx:if="{{interact_numbers}}">{{interact_numbers}}</view>
+        <image wx:else="{{!interact_numbers}}" class="widget__arrow"
+          src="/images/mine/arrow.png"
+          background-size="cover" />
+      </navigator>
+    </view>
+    <view class="mine-group">
+      <navigator url="/pages/feedback/feedback" class="widget">
+        <image class="sub-icon" src="/images/mine/opinion@2x.png"/>
+        <text class="widget__name">意见反馈</text>
+        <image class="widget__arrow"
+          src="/images/mine/arrow.png"
+          background-size="cover" />
+      </navigator>
+    </view>
+  </view>
+  <include src="../templates/footer.wxml" wx:if="{{!loadding}}"/>
+</view>

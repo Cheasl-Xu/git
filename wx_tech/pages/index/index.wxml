@@ -1,0 +1,97 @@
+<!-- 推荐 -->
+<!-- 轮播图 -->
+<scroll-view class="hot-item-container" scroll-y="true" bindscrolltolower="loadMore">
+	<view style="min-height: {{height}}px;">
+	    <swiper indicator-dots="true" autoplay="true" interval="4000" duration="600" class="swiper" wx:if="{{swiperlists[0]}}">
+	        <block wx:for="{{swiperlists}}" wx:for-item="item" wx:key="id">
+	            <swiper-item >
+	            <view  bindtap="toLink" data-index='{{index}}' class="slide-image">
+	                <image src="{{item.imgSrc}}" mode="aspectFill"/>
+	             </view>
+	            </swiper-item>
+	        </block>
+	    </swiper>
+	    <view class="class-icon flex-wrap" wx:if="{{navlist[0]}}">
+		  	<view class="classify flex" wx:for="{{navlist}}" wx:for-item="item" wx:key="id">
+	    		<navigator hover-class="none" url="/pages/list/list?id={{item.id}}&title={{item.title}}">
+		  		    <view class="class-img">
+		  			    <image src="{{item.imgSrc}}" mode="aspectFill" />
+		  		    </view>
+		  		    <text class="class-text">{{item.title}}</text>
+	  	    	</navigator>
+		  	</view>
+	    </view>
+
+		<view class="cloumn" wx:if="{{columnList[0]}}">
+			<navigator hover-class="none" url="/pages/list/list">
+				<view class="title">
+					<view class="black-seat"></view>
+					<view class="title-name">专栏</view>
+		            <image src="/images/mine/arrow.png" background-size="cover" />
+				</view>
+			</navigator>
+			<view class="brief-list" wx:for="{{columnList}}" wx:for-item="item" wx:key="id" id="{{item.column_id}}">
+			<navigator hover-class="none" url="/pages/bricolumn/bricolumn?cid={{item.column_id}}">
+				<view class="cloumn-top flex-wrap">
+					<view class="cloumn-pic">
+						<image src="{{item.imgSrc}}" mode="aspectFill" class="cloumn-img"/>
+					</view>
+					<view class="cloumn-content flex">
+						<view class="cloumn-title overflow-line2">{{item.title}}</view>
+						<view class="cloumn-brief overflow-line2">{{item.brief}}</view>
+						<view class="column-detail flex-wrap">
+							<view class="column-detail-inner flex-wrap">
+								<view class="cloumn-update">已更新{{item.stage}}期</view>
+								<view class="cloumn-subscribe">{{item.subscribe}}人已订阅</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</navigator>
+			</view>
+		</view>
+
+		<view class="newest" wx:if="{{contentList[0]}}">
+			<view class="title">
+				<view class="black-seat"></view>
+				<view class="title-name">最新</view>
+			</view>
+			<view class="newest-list" wx:for="{{contentList}}" wx:for-item="item" wx:key="id">
+			<navigator hover-class="none" url="/pages/form/form?type={{item.type}}&cid={{item.content_id}}">
+				<view class="newest-top flex-wrap">
+					<view class="newest-content flex">
+						<view class="newest-title overflow-line1">{{item.title}}</view>
+						<view class="newest-brief overflow-line2">{{item.brief}}</view>
+	                    <view class="newest-bottom flex-wrap">
+	        				<view class="header-count flex">
+	        					<view class="newest-view newest-icon">
+	                                <i class="h5tech h5-view"></i>
+	                                <text>{{item.view_count}}</text>
+	                            </view>
+	        					<view class="newest-comment newest-icon">
+	                                <i class="h5tech h5-comment"></i>
+	                                <text>{{item.comment_count}}</text>
+	                            </view>
+	        					<view class="newest-time newest-icon">
+	                                <i class="h5tech h5-time"></i>
+	                                <text>{{item.create_time}}</text>
+	                            </view>
+	        				</view>
+	        			</view>
+	                </view>
+					<view class="newest-pic">
+						<view class="newest-img linear">
+	            			<i class="h5tech h5-{{item.type}}"></i>
+							<image src="{{item.imgSrc}}" mode="aspectFill" />
+						</view>
+					</view>
+				</view>
+			</navigator>
+			</view>
+		</view>
+    </view>
+    <view class="xz_loading" wx:if="{{!loading && !hasMore && (page.num != 0) && (page.num != page.cur)}}">
+        <view class="load-text">加载中...</view>
+    </view>
+	<include src="../templates/footer.wxml" wx:if="{{!loadding && footer && (contentList.length == page.total)}}"/>
+</scroll-view>

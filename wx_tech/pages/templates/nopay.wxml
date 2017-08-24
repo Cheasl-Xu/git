@@ -1,0 +1,11 @@
+<view class="nopay-pages">
+	<view style="min-height:{{height}}px;">
+		<view class="no-getcontent"><i class="h5tech h5-gantan"></i>无法获取内容</view>
+		<view class="visit">访问h5店铺完整查看</view>
+		<view class="qr-wrap">
+		  	<image src="{{h5_qrcode}}" bindlongtap="downloadFile" />
+			<view class="press">长按保存到相册，使用微信扫描进入</view>
+		</view>
+	</view>
+	<include src="../templates/footer.wxml"/>
+</view>

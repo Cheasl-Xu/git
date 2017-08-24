@@ -1,0 +1,68 @@
+.infomation-edit{
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: #f4f4f4;
+}
+.edit-inner{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.edit-avator{
+  margin-top: 40rpx;
+  padding: 16rpx 32rpx;
+  font-size: 32rpx;
+  overflow: hidden;
+  line-height: 68rpx;
+  background-color: #fff;
+}
+.avator{
+  float: right;
+}
+.avator-arrow{
+  display: inline-block;
+  vertical-align: middle;
+  width:16rpx;
+  height:32rpx;
+}
+.avator-img{
+  margin-right: 20rpx;
+  vertical-align: middle;
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 100%;
+}
+.edit-item{
+  padding: 36rpx;
+  font-size: 32rpx;
+  border-top: 1px solid #eee;
+}
+.item-value{
+  float: right;
+  font-size: 28rpx;
+  color: #8E8E93;
+}
+.item-change-value{
+  float: right;
+  margin-top: -8rpx;
+  width: 450rpx;
+  font-size: 28rpx;
+  color: #8E8E93;
+  text-align: right;
+  border-bottom: none;
+}
+.no-top-border{
+  border-top: none;
+}
+.btn-save{
+  margin: 100rpx auto;
+  width: 80%;
+}
+input{
+  border-bottom: 2rpx solid #d8d8d8;
+}
+button{
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #44AE69;
+}

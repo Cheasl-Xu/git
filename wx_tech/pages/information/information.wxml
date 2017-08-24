@@ -1,0 +1,61 @@
+<import src="../templates/blank.wxml" />
+
+<view class="information-box">
+  <template is="blank" wx:if="{{!isdata}}"/>
+  <block wx:else="{{systemData}}">
+		<scroll-view 
+		  scroll-top="{{scrollTop}}"
+      style="height:{{scrollHeight}}px" 
+      bindscroll="scroll"
+      bindscrolltolower="loadMore"
+      scroll-y="true"
+		  class="information">
+		 <view 
+		 	class="information-item"
+		 	wx:for="{{systemData}}"
+		  wx:key="item">
+		 	<view class="content-top">
+	 		 	<view class="information-title">
+	 		 	 <view class="title-icon">
+	 		 	 	<image src="/images/mine/1.png" class="class-img"></image>
+	 		 	 </view>
+	 		 	 <view class="title-content">
+	 		 	 	<view class="release-title">{{item.sender_name}}</view>
+	 		 	 	<view class="release-time">
+	 					<image src="/images/mine/Group.svg" class="time-icon"></image>
+	 		 	 		<view class="time">{{item.send_time}}</view>
+	 		 	 	</view>
+	 		 	 </view>
+	 		 	</view>
+	 			<view class="information-content">
+	 				<view class="{{ 'content-text ' +  (item.isExpanded ? 'collapse' : 'extend') }}" >
+	 					<text wx:if="{{item.isExpanded}}">{{item.smallContent}}</text><text wx:if="{{!item.isExpanded}}">{{item.content}}</text><text class="spot" wx:if="{{item.isExpanded==true}}" class="full-text" bindtap="flodFn" id="{{index}}"><text class="breviary">...</text>全文</text>
+	 					<text wx:if="{{item.isPackUp}}" bindtap="packUp" id="{{index}}" class="pack-up full-text">收起</text>
+	 				</view>
+	 		  </view>
+		 	</view>
+		  <view wx:if="{{(item.link_info.type !== 'none' && item.link_info.type !== 'outLink') && item.link_info.title}}">
+        <navigator wx:if="{{item.link_info.type === 'live'}}" url="/pages/live/live" class="out-link">
+          <image src="/images/mine/group_2@3x.png" class="link-img"></image>
+          <text>{{item.link_info.title}}</text>
+        </navigator>
+        <navigator wx:elif="{{item.link_info.type === 'column'}}" url="/pages/bricolumn/bricolumn?cid={{item.link_info.content_id}}" class="out-link">
+          <image src="/images/mine/group_2@3x.png" class="link-img"></image>
+          <text>{{item.link_info.title}}</text>
+        </navigator>
+        <navigator wx:else url="/pages/form/form?type={{item.link_info.type}}&cid={{item.link_info.content_id}}" class="out-link">
+          <image src="/images/mine/group_2@3x.png" class="link-img"></image>
+          <text>{{item.link_info.title}}</text>
+        </navigator>
+		  </view>
+		 </view>
+		 <view class="xz_loading" wx:if="{{iscount}}">
+        <view class="load-text">没有更多内容了</view>
+     </view>
+
+		 <loading hidden="{{hidden}}">
+       加载中...
+     </loading>
+		</scroll-view>
+  </block>
+ </view>

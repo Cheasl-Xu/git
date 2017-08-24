@@ -1,0 +1,11 @@
+<view class="error">
+  <block>
+    <view class="no-order">
+      <view class="img-box">
+        <image src="/images/error/no-content-3x.png"/>
+      </view>
+      <view class="error-content">访问出错了呀！</view>
+      <view class="error-tip">Access error</view>
+    </view>
+  </block>
+</view>

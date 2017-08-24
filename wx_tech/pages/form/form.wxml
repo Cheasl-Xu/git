@@ -1,0 +1,3 @@
+<include src="template/article.wxml" wx:if="{{type == 'article'}}" />
+<include src="template/video.wxml" wx:if="{{type == 'video'}}" />
+<include src="template/audio.wxml" wx:if="{{type == 'audio'}}" />

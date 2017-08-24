@@ -1,0 +1,38 @@
+.page-feedback{
+  height: 100%;
+  font-size: 28rpx;
+  background-color: #f4f4f4;
+}
+
+.sub-title{
+  display: block;
+  padding: 24rpx 32rpx;
+  color: #999;
+}
+
+.textarea-view{
+  padding: 20rpx 32rpx;
+  background-color: #fff;
+}
+
+textarea{
+  width: 100%;
+  min-height: 380rpx;
+}
+
+input{
+  padding: 0rpx 32rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+}
+
+.btn-save{
+  margin: 60rpx auto;
+  width: 80%;
+}
+button{
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #44AE69;
+}

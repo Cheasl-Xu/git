@@ -1,0 +1,31 @@
+<view class="freedetail-page">
+	<view class="freedetail-box" wx:if="{{!loadding}}">
+		<view class="freedetail-wrap">
+			<view class="img-box">
+			  	<image mode="aspectFill" class="blur" src="{{freeColumndetail.indeximg}}"/>
+			    <view class="mark"></view>
+			    <image mode="aspectFill" class="center" src="{{freeColumndetail.indeximg}}"/>
+			</view>
+			<view class="header">
+				<view class="header-title">{{freeColumndetail.title}}</view>
+				<view class="header-brief">{{freeColumndetail.brief}}</view>
+			</view>
+			<view class="detail-info">
+				<rich-text wx:if="{{canIUse}}"  nodes="{{freeColumndetail.describe}}" ></rich-text>
+				<view wx:if="{{!canIUse}}">{{freeColumndetail.describe}}</view>
+			</view>
+			
+			
+			<view class="toast-wrap" wx:if="{{isShowToast}}">
+			  	<span  class="own-toast">{{tips}}</span>
+			</view>
+			<include src="../templates/footer.wxml" wx:if="{{!loadding && footer}}"/>
+			<view class="order-wrap">
+				<view class="order-btn" bindtap="ordercolumn">订阅专栏</view>
+			</view>
+		</view>
+    </view>
+    <loading hidden="{{!loadding}}">
+        加载中...
+    </loading>
+</view>

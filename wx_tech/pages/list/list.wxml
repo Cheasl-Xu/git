@@ -1,0 +1,35 @@
+<import src="../templates/blank.wxml" />
+<view class="columnlist-page">
+<template is="blank" wx:if="{{noContent}}"/>
+<scroll-view class="hot-item-container" style="height: 100vh;"
+  scroll-y="true" bindscrolltolower="loadMore" wx:if="{{!noContent}}">
+  <view style="min-height: {{height}}px;">
+    <view class="list-view">
+      <view class="cloumn-list" wx:for="{{columnlist}}" wx:key="index">
+        <navigator hover-class="none" url="../bricolumn/bricolumn?cid={{item.column_id}}">
+    	    <view class="cloumn-top flex-wrap">
+            <view class="img-box">
+              <image src="{{item.indeximg}}" mode="aspectFill" class="column-image" />
+    		  	</view>
+    		  	<view class="cloumn-content flex">
+              <view class="cloumn-title overflow-line2">{{item.title}}</view>
+              <view class="cloumn-brief overflow-line2">{{item.brief}}</view>
+              <view class="column-detail flex-wrap column-detail-inner">
+                <view class="cloumn-update">已更新{{item.stage}}期</view>
+                <view class="cloumn-subscribe">{{item.subscribe}}人已订阅</view>
+              </view>
+    			  </view>
+    		  </view>
+        </navigator>
+  	  </view>
+    </view>
+  </view>
+    <view class="xz_loading" wx:if="{{hasMore && !loadding}}">
+      <view class="load-text">加载中...</view>
+    </view>
+    <include src="../templates/footer.wxml" wx:if="{{!loadding && !errorTip && (columnlist.length == count.sum)}}"/>
+    <loading hidden="{{!loadding}}">
+      加载中...
+    </loading>
+</scroll-view>
+</view>
